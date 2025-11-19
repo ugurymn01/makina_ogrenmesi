@@ -21,7 +21,7 @@ Veriyi anlamlandırmak için çeşitli görselleştirme teknikleri kullanılmı�
 ### 🔍 Değişkenler Arası İlişki (Korelasyon)
 Hangi değişkenin diğeriyle bağlantılı olduğunu görmek için Isı Haritası (Heatmap) kullanılmıştır.
 
-![Korelasyon Matrisi](ss1.png)
+![Korelasyon Matrisi](ss3.png)
 *(Yukarıdaki matriste görüldüğü üzere değişkenler arasındaki ilişki katsayıları renklerle ifade edilmiştir. Kırmızıya yakın renkler güçlü ilişkiyi temsil eder.)*
 
 ---
@@ -29,7 +29,7 @@ Hangi değişkenin diğeriyle bağlantılı olduğunu görmek için Isı Haritas
 ### 📈 Yıllara Göre Reçete Sayısı
 Opioid reçetelerinin yıllar içindeki değişim trendi analiz edilmiştir.
 
-![Yıl Bazlı Reçete](ss4.png)
+![Yıl Bazlı Reçete](ss1.png)
 *(Grafikte, reçete sayılarının belirli bir yıla kadar arttığı, sonrasında ise düşüş eğilimine girdiği gözlemlenmektedir.)*
 
 ---
@@ -51,7 +51,7 @@ Veri seti içerisindeki **Reçete Sayısı** ve **Crude Rate (Ölüm Oranı)** a
 
 Model eğitildikten sonra elde edilen regresyon doğrusu aşağıdadır:
 
-![Regresyon Sonucu](ss3.png)
+![Regresyon Sonucu](ss4.png)
 
 ### 📝 Grafik Yorumu:
 * **Kırmızı Çizgi:** Modelin öğrendiği trend çizgisidir (Best Fit Line).
