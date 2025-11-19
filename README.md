@@ -1,73 +1,68 @@
-# 🧠 Makine Öğrenmesi ile Tahmin Modeli (Linear Regression)
+# 💊 ABD Opioid Reçete ve Ölüm Analizi (Regression Model)
 
-![Python](https://img.shields.io/badge/Python-3.x-blue) ![Jupyter](https://img.shields.io/badge/Notebook-Jupyter-orange) ![Status](https://img.shields.io/badge/Durum-Tamamlandı-green)
+![Python](https://img.shields.io/badge/Python-3.x-blue) ![Data Science](https://img.shields.io/badge/Alan-Data_Science-purple) ![Status](https://img.shields.io/badge/Durum-Tamamlandı-green)
 
-Bu proje, veri bilimi teknikleri kullanılarak **bağımsız bir değişkenin (Örn: Metrekare, Deneyim)** hedef değişken üzerindeki **(Örn: Fiyat, Maaş)** etkisini analiz etmek ve geleceğe yönelik tahminlerde bulunmak amacıyla geliştirilmiştir.
-
-Dosya: `Untitled.ipynb`
+Bu proje, ABD'deki opioid reçete sayıları, yıllar ve ölüm oranları (Crude Rate) arasındaki ilişkiyi analiz etmek ve makine öğrenmesi yöntemleriyle geleceğe yönelik tahminlerde bulunmak amacıyla geliştirilmiştir.
 
 ---
 
-## 🎯 Projenin Amacı ve Kapsamı
-Bu çalışmanın temel amacı, eldeki ham veriyi işleyerek makinenin matematiksel bir desen (pattern) yakalamasını sağlamaktır. 
-**Basit Doğrusal Regresyon (Simple Linear Regression)** algoritması seçilmiştir çünkü:
-1.  Veri setimizdeki değişkenler arasında doğrusal bir ilişki (biri artarken diğerinin de artması/azalması) vardır.
-2.  Sonuçların yorumlanması ve açıklanması (Explainability) en net olan modeldir.
+## 🎯 Projenin Amacı
+Halk sağlığını etkileyen önemli bir veri seti üzerinde çalışılarak:
+1.  Yıllara göre reçete dağılımının incelenmesi.
+2.  Hangi eyaletlerde ölüm oranlarının daha yüksek olduğunun görselleştirilmesi.
+3.  **Reçete Sayısı** ve **Ölüm Oranları** arasındaki ilişkinin matematiksel olarak modellenmesi (Linear Regression).
 
 ---
 
-## 📊 1. Veri Analizi ve Değişken Seçimi (EDA)
+## 📊 1. Veri Analizi ve Görselleştirme (EDA)
 
-Modeli körü körüne eğitmek yerine, önce veriyi anlamlandırdık.
+Veriyi anlamlandırmak için çeşitli görselleştirme teknikleri kullanılmıştır.
 
-### 🔍 Neden Bu Değişkenleri Seçtik?
-Veri setindeki tüm sütunları modele dahil etmek, "gürültü" (noise) yaratarak tahmin başarısını düşürebilir. Bu yüzden **Korelasyon Analizi** yaptık.
-* **Analiz Sonucu:** Hedef değişkenimiz (Y) ile en yüksek korelasyona (ilişkiye) sahip olan değişken (X) tespit edildi ve modelin girdisi olarak seçildi.
-* **Diğer Değişkenler:** İlişkisi zayıf olan veya sayısal olmayan (kategorik) veriler, modelin sapmasını önlemek adına temizlendi.
+### 🔍 Değişkenler Arası İlişki (Korelasyon)
+Hangi değişkenin diğeriyle bağlantılı olduğunu görmek için Isı Haritası (Heatmap) kullanılmıştır.
 
-*(Buraya arkadaşın da senin gibi Isı Haritası veya Dağılım grafiği eklerse süper olur)*
-`![Veri Analizi Grafiği](grafik_adi.png)`
+![Korelasyon Matrisi](ss1.png)
+*(Yukarıdaki matriste görüldüğü üzere değişkenler arasındaki ilişki katsayıları renklerle ifade edilmiştir. Kırmızıya yakın renkler güçlü ilişkiyi temsil eder.)*
 
 ---
 
-## 🧹 2. Veri Ön İşleme (Preprocessing)
+### 📈 Yıllara Göre Reçete Sayısı
+Opioid reçetelerinin yıllar içindeki değişim trendi analiz edilmiştir.
 
-Ham veri, makine öğrenmesi için doğrudan uygun değildir. Şu adımlar uygulanarak veri "temiz" hale getirilmiştir:
-
-1.  **Eksik Veri (Null) Temizliği:** * Veri setindeki boş hücreler `.dropna()` yöntemi ile kaldırıldı. Çünkü boş veriler modelin matematiksel hesaplama yaparken hata vermesine neden olur.
-2.  **Veri Ayrımı (Train/Test Split):**
-    * Verinin tamamıyla eğitim yapılmadı. **%80 Eğitim, %20 Test** olarak ayrıldı.
-    * **Neden?** Makinenin veriyi ezberlemesini (Overfitting) önlemek ve hiç görmediği verilerle karşılaştığında ne kadar başarılı olduğunu objektif ölçmek için.
+![Yıl Bazlı Reçete](ss4.png)
+*(Grafikte, reçete sayılarının belirli bir yıla kadar arttığı, sonrasında ise düşüş eğilimine girdiği gözlemlenmektedir.)*
 
 ---
 
-## 🤖 3. Modelleme ve Eğitim
+### 🏙️ Eyaletlere Göre Ölüm Dağılımı
+Hangi eyaletlerde ölümlerin daha yoğun olduğu analiz edilmiştir.
 
-Scikit-Learn kütüphanesi kullanılarak **LinearRegression** modeli kuruldu.
-
-* **Mantık:** Makine, eğitim verilerine bakarak noktaların en iyi temsil edildiği **"Regresyon Doğrusunu" (Best Fit Line)** çizdi.
-* **Formül:** `y = mx + b` (Eğim ve Kesişim noktaları hesaplandı).
-
----
-
-## 📈 4. Sonuçlar ve Performans Değerlendirmesi
-
-Modelin başarısı, ayırdığımız test verileri üzerinde ölçüldü.
-
-### 📝 Grafik Yorumu
-Regresyon grafiğimizde, modelin çizdiği **tahmin çizgisinin**, gerçek verilerin (noktaların) genel eğilimini takip ettiği görülmüştür. Bu durum, modelin başarılı bir genelleme yaptığını kanıtlar.
-
-### 🏆 Başarı Kriterleri
-* **R2 Skoru:** Modelin, verideki değişkenliği ne kadar açıklayabildiğini gösterir.
-* **MSE (Ortalama Kare Hata):** Tahminlerin gerçek değerlerden ne kadar saptığını gösterir. (Düşük olması iyidir).
-
-*(Buraya Kırmızı Çizgili Sonuç grafiğini ekleyebilir)*
-`![Sonuç Grafiği](sonuc_grafigi.png)`
+![Eyalet Bazlı Ölümler](ss2.png)
+*(California, Florida ve New York gibi nüfusun yoğun olduğu eyaletlerde sayıların daha yüksek olduğu görülmektedir.)*
 
 ---
 
-## 💻 Kurulum
+## 🤖 2. Makine Öğrenmesi Modeli (Linear Regression)
 
-Projeyi çalıştırmak için aşağıdaki kütüphanelerin yüklü olması gerekmektedir:
+Veri seti içerisindeki **Reçete Sayısı** ve **Crude Rate (Ölüm Oranı)** arasındaki ilişki modellenmiştir.
+
+* **Bağımsız Değişken (X):** Crude Rate
+* **Hedef Değişken (y):** Reçete Sayısı (Prescriptions Dispensed)
+
+Model eğitildikten sonra elde edilen regresyon doğrusu aşağıdadır:
+
+![Regresyon Sonucu](ss3.png)
+
+### 📝 Grafik Yorumu:
+* **Kırmızı Çizgi:** Modelin öğrendiği trend çizgisidir (Best Fit Line).
+* **Kırmızı Alan:** Güven aralığını temsil eder.
+* Grafik, ölüm oranları (Crude Rate) ile dağıtılan reçete miktarı arasında **pozitif bir ilişki** olduğunu (biri artarken diğerinin de arttığını) göstermektedir.
+
+---
+
+## 💻 Kurulum ve Çalıştırma
+
+Bu projeyi çalıştırmak için aşağıdaki kütüphanelerin yüklü olması gerekir:
+
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn
