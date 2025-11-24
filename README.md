@@ -86,7 +86,7 @@ Görselleri uygun klasöre koyarak aşağıdaki bağlantıları güncelleyebilir
 ---
 
 ### 5.4 Gerçek ve Tahmin Değer Karşılaştırma Grafiği
-`![Gerçek vs Tahmin Grafiği](gorseller/ss_tahmin.png)`
+![tablo](ss5.png)
 
 ---
 
