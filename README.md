@@ -1,68 +1,107 @@
-# 💊 ABD Opioid Reçete ve Ölüm Analizi (Regression Model)
+# ABD Opioid Reçete ve Ölüm Oranları Üzerine Regresyon Analizi
 
-![Python](https://img.shields.io/badge/Python-3.x-blue) ![Data Science](https://img.shields.io/badge/Alan-Data_Science-purple) ![Status](https://img.shields.io/badge/Durum-Tamamlandı-green)
-
-Bu proje, ABD'deki opioid reçete sayıları, yıllar ve ölüm oranları (Crude Rate) arasındaki ilişkiyi analiz etmek ve makine öğrenmesi yöntemleriyle geleceğe yönelik tahminlerde bulunmak amacıyla geliştirilmiştir.
+Bu proje, ABD’deki opioid reçete sayıları, yıllar ve eyaletlere göre ölüm oranları arasındaki ilişkiyi incelemek, veriyi temizlemek ve Lineer Regresyon modeli ile tahmin yapmak amacıyla hazırlanmıştır.
 
 ---
 
-## 🎯 Projenin Amacı
-Halk sağlığını etkileyen önemli bir veri seti üzerinde çalışılarak:
-1.  Yıllara göre reçete dağılımının incelenmesi.
-2.  Hangi eyaletlerde ölüm oranlarının daha yüksek olduğunun görselleştirilmesi.
-3.  **Reçete Sayısı** ve **Ölüm Oranları** arasındaki ilişkinin matematiksel olarak modellenmesi (Linear Regression).
+## 1. Kullanılan Veri Seti
+
+Projede kullanılan veri seti (datam.csv) aşağıdaki değişkenleri içermektedir:
+
+- Year: Yıl bilgisi  
+- State: Eyalet  
+- Prescriptions Dispensed by US Retailers in that year (millions): O yıl dağıtılan reçete sayısı  
+- Deaths: İlgili yıldaki ölüm sayısı  
+- Crude Rate: 100.000 kişi başına düşen ölüm oranı  
 
 ---
 
-## 📊 1. Veri Analizi ve Görselleştirme (EDA)
+## 2. Veri Temizleme Süreci
 
-Veriyi anlamlandırmak için çeşitli görselleştirme teknikleri kullanılmıştır.
+### Eksik Değer Kontrolü
+- Veri seti yüklendikten sonra eksik değer analizi yapılmıştır.  
+- NaN veya boş değer içeren satırlar temizlenmiştir.
 
-### 🔍 Değişkenler Arası İlişki (Korelasyon)
-Hangi değişkenin diğeriyle bağlantılı olduğunu görmek için Isı Haritası (Heatmap) kullanılmıştır.
+### Veri Tiplerinin Düzenlenmesi
+- Sayısal değişkenlerin veri tipleri kontrol edilmiştir.  
+- Yanlış formatlı değerler uygun tiplere dönüştürülmüştür.
 
-![Korelasyon Matrisi](ss3.png)
-*(Yukarıdaki matriste görüldüğü üzere değişkenler arasındaki ilişki katsayıları renklerle ifade edilmiştir. Kırmızıya yakın renkler güçlü ilişkiyi temsil eder.)*
+### Hatalı / Tutarsız Değerlerin Düzeltilmesi
+- Negatif veya mantık dışı değerler analiz edilmiştir.  
+- Veri bütünlüğünü bozan satırlar çıkarılmıştır.
 
----
-
-### 📈 Yıllara Göre Reçete Sayısı
-Opioid reçetelerinin yıllar içindeki değişim trendi analiz edilmiştir.
-
-![Yıl Bazlı Reçete](ss1.png)
-*(Grafikte, reçete sayılarının belirli bir yıla kadar arttığı, sonrasında ise düşüş eğilimine girdiği gözlemlenmektedir.)*
-
----
-
-### 🏙️ Eyaletlere Göre Ölüm Dağılımı
-Hangi eyaletlerde ölümlerin daha yoğun olduğu analiz edilmiştir.
-
-![Eyalet Bazlı Ölümler](ss2.png)
-*(California, Florida ve New York gibi nüfusun yoğun olduğu eyaletlerde sayıların daha yüksek olduğu görülmektedir.)*
+### Analize Hazırlama
+- Modelde bağımsız değişken (X) Crude Rate olarak seçilmiştir.  
+- Modelde bağımlı değişken (y) Prescriptions Dispensed olarak belirlenmiştir.
 
 ---
 
-## 🤖 2. Makine Öğrenmesi Modeli (Linear Regression)
+## 3. Projenin Amacı ve Tahmin Edilen Değer
 
-Veri seti içerisindeki **Reçete Sayısı** ve **Crude Rate (Ölüm Oranı)** arasındaki ilişki modellenmiştir.
+Bu çalışmada:
 
-* **Bağımsız Değişken (X):** Crude Rate
-* **Hedef Değişken (y):** Reçete Sayısı (Prescriptions Dispensed)
+1. Yıllara göre reçete sayılarının değişimi incelenmiştir.  
+2. Eyaletlerdeki ölüm oranları analiz edilmiştir.  
+3. Crude Rate ile reçete sayısı arasındaki ilişki değerlendirilmiştir.  
+4. Lineer Regresyon modeliyle reçete tahmini yapılmıştır.  
 
-Model eğitildikten sonra elde edilen regresyon doğrusu aşağıdadır:
-
-![Regresyon Sonucu](ss4.png)
-
-### 📝 Grafik Yorumu:
-* **Kırmızı Çizgi:** Modelin öğrendiği trend çizgisidir (Best Fit Line).
-* **Kırmızı Alan:** Güven aralığını temsil eder.
-* Grafik, ölüm oranları (Crude Rate) ile dağıtılan reçete miktarı arasında **pozitif bir ilişki** olduğunu (biri artarken diğerinin de arttığını) göstermektedir.
+**Tahmin edilen değer (y):** Prescriptions  
+**Bağımsız değişken (X):** Crude Rate  
 
 ---
 
-## 💻 Kurulum ve Çalıştırma
+## 4. Kullanılan Makine Öğrenmesi Modeli
 
-Bu projeyi çalıştırmak için aşağıdaki kütüphanelerin yüklü olması gerekir:
+Projede Linear Regression modeli kullanılmıştır.
 
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+Model adımları:
+
+1. X ve y değişkenlerinin seçilmesi  
+2. Eğitim-test ayrımı yapılması  
+3. Modelin eğitilmesi  
+4. Tahminlerin üretilmesi  
+5. Gerçek ve tahmini değerlerin karşılaştırılması  
+
+---
+
+## 5. Veri Analizi ve Görselleştirmeler
+
+Bu bölümde Jupyter Notebook’taki beş grafik yer almaktadır.  
+Görselleri uygun klasöre koyarak aşağıdaki bağlantıları güncelleyebilirsiniz.
+
+---
+
+### 5.1 Yıllara Göre Reçete Sayısı Trend Grafiği
+!ss1.png
+
+---
+
+### 5.2 Eyaletlere Göre Ortalama Ölüm Sayısı
+!ss2.png
+
+---
+
+### 5.3 Korelasyon Matrisi
+!ss3.png
+
+---
+
+### 5.4 Gerçek ve Tahmin Değer Karşılaştırma Grafiği
+`![Gerçek vs Tahmin Grafiği](gorseller/ss_tahmin.png)`
+
+---
+
+### 5.5 Crude Rate ve Prescriptions Arasındaki Regresyon Grafiği
+!ss4.png
+
+---
+
+## 6. Model Performans Metrikleri
+
+Notebook içerisinde hesaplanan değerlendirme metrikleri:
+
+- **R² Skoru:** Modelin açıklayıcılık oranını gösterir.  
+- **RMSE (Root Mean Squared Error):** Tahminlerin ortalama hata büyüklüğünü gösterir.  
+
+---
+
