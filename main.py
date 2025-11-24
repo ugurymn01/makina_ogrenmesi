@@ -119,3 +119,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+rows = df.shape[0]
+cols = df.shape[1]
+print("Toplam veri sayısı:", rows)
+print("Kolon sayısı:", cols)
