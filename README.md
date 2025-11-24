@@ -72,17 +72,16 @@ Görselleri uygun klasöre koyarak aşağıdaki bağlantıları güncelleyebilir
 ---
 
 ### 5.1 Yıllara Göre Reçete Sayısı Trend Grafiği
-!ss1.png
+![tablo](ss1.png)
 
 ---
 
 ### 5.2 Eyaletlere Göre Ortalama Ölüm Sayısı
-!ss2.png
-
+![tablo](ss2.png)
 ---
 
 ### 5.3 Korelasyon Matrisi
-!ss3.png
+![tablo](ss3.png)
 
 ---
 
@@ -92,7 +91,7 @@ Görselleri uygun klasöre koyarak aşağıdaki bağlantıları güncelleyebilir
 ---
 
 ### 5.5 Crude Rate ve Prescriptions Arasındaki Regresyon Grafiği
-!ss4.png
+![tablo](ss4.png)
 
 ---
 
