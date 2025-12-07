@@ -105,8 +105,15 @@ Fakat asıl güçlü değişken grafikte github reposunda mevcuttur.
 ---
 
 ### 5.5 Crude Rate ve Prescriptions Arasındaki Regresyon Grafiği
+- En basit ve vurgulanması bu doğru çizimiyle mümkündür.
+- Çizimde modelin gerçek verilerle ortalama olarak doğru ilişkide olduğunu ve tahmin edebilir olduğunu gösterir.
+- Tahminin çizgideki mesafesine göre modelin tahmin doğruluğu
+
 ![tablo](ss4.png)
 
+Örnek: 151.19 ama asıl değer 149.00 → 2.19’luk bir sapma var.
+Modelin R² skoru = 0.91
+Ortak bir kare hatası (MSE): 98.33 civarıdır.
 ---
 
 ## 6. Model Performans Metrikleri
