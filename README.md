@@ -40,10 +40,10 @@ Projede kullanılan veri seti (datam.csv) aşağıdaki değişkenleri içermekte
 
 Bu çalışmada:
 
-1. Yıllara göre reçete sayılarının değişimi incelenmiştir.  
-2. Eyaletlerdeki ölüm oranları analiz edilmiştir.  
-3. Crude Rate ile reçete sayısı arasındaki ilişki değerlendirilmiştir.  
-4. Lineer Regresyon modeliyle reçete tahmini yapılmıştır.  
+Yıllara göre reçete sayılarının değişimi incelenmiştir.  
+Eyaletlerdeki ölüm oranları analiz edilmiştir.  
+Crude Rate ile reçete sayısı arasındaki ilişki değerlendirilmiştir.  
+Lineer Regresyon modeliyle reçete tahmini yapılmıştır.  
 
 **Tahmin edilen değer (y):** Prescriptions  
 **Bağımsız değişken (X):** Crude Rate  
@@ -56,11 +56,11 @@ Projede Linear Regression modeli kullanılmıştır.
 
 Model adımları:
 
-1. X ve y değişkenlerinin seçilmesi  
-2. Eğitim-test ayrımı yapılması  
-3. Modelin eğitilmesi  
-4. Tahminlerin üretilmesi  
-5. Gerçek ve tahmini değerlerin karşılaştırılması  
+1. Adım = X ve y değişkenlerinin seçilmesi  
+2. Adım = Eğitim-test ayrımı yapılması  
+3. Adım = Modelin eğitilmesi  
+4. Adım = Tahminlerin üretilmesi  
+5. Adım = Gerçek ve tahmini değerlerin karşılaştırılması  
 
 ---
 
