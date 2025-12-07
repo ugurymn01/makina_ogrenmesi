@@ -67,7 +67,6 @@ Model adımları:
 ## 5. Veri Analizi ve Görselleştirmeler
 
 Bu bölümde Jupyter Notebook’taki beş grafik yer almaktadır.  
-Görselleri uygun klasöre koyarak aşağıdaki bağlantıları güncelleyebilirsiniz.
 
 ---
 
