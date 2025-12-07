@@ -1,6 +1,6 @@
 # ABD Opioid Reçete ve Ölüm Oranları Üzerine Regresyon Analizi
 
-Bu proje, ABD’deki opioid reçete sayıları, yıllar ve eyaletlere göre ölüm oranları arasındaki ilişkiyi incelemek, veriyi temizlemek ve Lineer Regresyon modeli ile tahmin yapmak amacıyla hazırlanmıştır.
+Bu projede ABD’deki ilaç reçeteleri ve ölümlerine ait istatistiksel veriler kullanılmıştır. Veri seti eyaletlere ve yıllara göre düzenlenmiştir. 1999–2014 yılları arası baz alınmıştır.
 
 ---
 
@@ -53,6 +53,12 @@ Bu çalışmada:
 ## 4. Kullanılan Makine Öğrenmesi Modeli
 
 Projede Linear Regression modeli kullanılmıştır.
+Linear Regression seçme nedenleri:
+
+- Basit ve yorumlanabilir olması
+- Doğrusal ilişkiler için uygun olması çünkü korelasyon analizinde girdi değişkenlerinin iki tahmini değişken arasında doğrusal bir ilişki olduğu çıktı
+- Hızlı çalışması; her ne kadar büyük veri kullanmamış olsak da kodlanması ve tespit edilmesi hızlıdır
+Bu model ilk seçilecek değerler arasında ilk göründüğünde doğrusal bir ilişki olduğu için aslında ilk bu modeli denedim.
 
 Model adımları:
 
@@ -80,8 +86,17 @@ Bu bölümde Jupyter Notebook’taki beş grafik yer almaktadır.
 ---
 
 ### 5.3 Korelasyon Matrisi
+- İlk başta bu grafiği kullanma amacım, veri setindeki sayısal değişkenler arasında bir doğrusalılık var mı? Varsa bunun gücünü ve yönünü göstermektir.
+Bu tabloda güçlü olan korelasyonlar bej tonu, daha az güçlü olanlar açık renk ile gösterilmiştir.
+
 ![tablo](ss3.png)
 
+- Aralarında tam ve detaylı korelasyon ve bağlantı görülüp raporlanabilir.
+- Prescriptions ile Deaths arasındaki ilişki en güçlü ilişkidir (r ≈ 0.84). (Beklenen bir durum)
+- Korelasyon katsayısı (-1) ile (+1) arasında değer alır ve değer +1’e ne kadar yakınsa o kadar güçlüdür.
+- Grafikteki tonlara bakıldığında Crude Rate ve Prescriptions arasında doğrusal bir ilişki vardır.
+
+Fakat asıl güçlü değişken grafikte github reposunda mevcuttur.
 ---
 
 ### 5.4 Gerçek ve Tahmin Değer Karşılaştırma Grafiği
