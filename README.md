@@ -77,11 +77,15 @@ Bu bölümde Jupyter Notebook’taki beş grafik yer almaktadır.
 ---
 
 ### 5.1 Yıllara Göre Reçete Sayısı Trend Grafiği
+- Bu grafikte öncelikle inceleme yapan kişiye yıllara göre reçete sayısını milyon cinsinden göstermek istedik.
+
 ![tablo](ss1.png)
 
 ---
 
 ### 5.2 Eyaletlere Göre Ortalama Ölüm Sayısı
+- yıllara göre reçete sayısını anladıktan sonra bir başka sütun olan eyaletlere göe ölüm sayılarını verip fikir oluşturmak istedik.
+
 ![tablo](ss2.png)
 ---
 
@@ -100,6 +104,8 @@ Fakat asıl güçlü değişken grafikte github reposunda mevcuttur.
 ---
 
 ### 5.4 Gerçek ve Tahmin Değer Karşılaştırma Grafiği
+- Ypatığımız tahminler ve gerçek değerleri tek çizgi halinde kullanıp lineer bir tablo üzerinde göstermek istedik.
+
 ![tablo](ss5.png)
 
 ---
@@ -114,6 +120,7 @@ Fakat asıl güçlü değişken grafikte github reposunda mevcuttur.
 - Örnek: 151.19 ama asıl değer 149.00 → 2.19’luk bir sapma var.
 - Modelin R² skoru = 0.91
 - Ortak bir kare hatası (MSE): 98.33 civarıdır.
+**Bu kısımların sonuçları hemen altta metriklerin ne olduğu ve ne işe yaradığı bilgilerini verdik.**
 ---
 
 ## 6. Model Performans Metrikleri
