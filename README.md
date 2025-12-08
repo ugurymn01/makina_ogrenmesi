@@ -52,8 +52,6 @@ Bu çalışmada:
 
 ## 4. Kullanılan Makine Öğrenmesi Modeli
 
-![tablo](ss6.png)
-
 Projede Linear Regression modeli kullanılmıştır.
 Linear Regression seçme nedenleri:
 
